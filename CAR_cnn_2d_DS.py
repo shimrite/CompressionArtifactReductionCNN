@@ -21,18 +21,18 @@ train_buffer = 50
 val_buffer = 10
 dropout = 0.5
 
-log_dir = 'C:\\Users\\shimr\\Documents\\work\\testViz\\log'
+log_dir = 'C:\\Users\\shimr\\Documents\\work\\log'
 
 def main():
     """ reading TFrecordes and creating the datasets"""
-    train_TF_dir = ['C:\\Users\\shimr\\Documents\\work\\testViz\\tfrecords\\train']
-    val_TF_dir = ['C:\\Users\\shimr\\Documents\\work\\testViz\\tfrecords\\val']
+    train_TF_dir = ['C:\\Users\\shimr\\Documents\\work\\tfrecords\\train']
+    val_TF_dir = ['C:\\Users\\shimr\\Documents\\work\\tfrecords\\val']
 
     """ initilaze datasets for training for details see class loader
     loader return 2 kinds of datasets: train and validation
-    BUG: When the iterator is moving to read the validation sets and then return to the training its return to the
-    start of the data."""
-            #generate DS from TFrecords
+    TBD: validate iterator between validation and training sets.
+    """
+    #generate DS from TFrecords
     train_DS, validation_DS = loader(net_size=net_size, train_batch_size=train_batch_size,
                                          val_batch_size=val_batch_size, train_buffer=train_buffer,
                                             val_buffer=val_buffer).load_from_TFrecordes(train_TF_dir, val_TF_dir)
