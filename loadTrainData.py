@@ -96,7 +96,7 @@ for i in range(num_of_imgs - doneImgs):
 
 
     # address to save the TFRecords file
-    trainNet1_filename_pattern = 'C:/Users/shimr/Documents/work/testViz/tfrecords/train/train_'.format(net1_size)
+    trainNet1_filename_pattern = 'C:/Users/shimr/Documents/work/tfrecords/train/train_'.format(net1_size)
     train_last_percent = 0
 
     print()
