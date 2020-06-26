@@ -21,6 +21,21 @@ The package include the following python files:
 6. CAR_cnn_2d_DS (train the net)
 7. runCARCNN4Img2d (evaluate the net on jpg images)
 
+In high level the architecture of the model is as follows:
+
+ 1. Divided the data into train-validation-test sets.
+ 2. Train and validation sets loaded into tfrecords in patches of 32x32. 
+(allowing kernels of 9x9 later in the net, adding local environment to the learn, 'Q' matrix of jpg compression is 8x8..)
+ 3. Train and Validation sets loaded into two Datasets ('map' function reads from the tfrecords).
+ 4. Train CNN model:
+  - layer 1 - conv&relu, 9x9 kernel, 64 features (map 32x32 image into 32x32x64 features)
+  - layer 2 - conv&relu, 7x7 kernel, 32 features (map 32x32x64 images into 32x32x32 features)
+  - layer 3 - conv&relu, 1x1 kernel, 16 features (map 32x32x32 image into 32x32x16 features)
+  - layer 4 - conv&relu, 5x5 kernel, into 1 feature (results with the original shape image - 32x32) 
+* loss function (MSE) reduced steadily during the train
+5. Run the model on folder including jpg images - per image, build the batch of patches (each patch 32x32 size), run the net and reconstruct to the image.  
+
+
 In order to run the model, please update the following:
 
 1. loadTrainData - 
