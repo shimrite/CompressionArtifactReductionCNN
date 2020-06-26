@@ -43,8 +43,8 @@ patches_to_learn_xInd = list(np.arange(0, img_sz, net1_size))
 patches_to_learn_yInd = list(np.arange(0, img_sz, net1_size))
 patches_to_learn_ind = list(product(list(np.arange(0, img_sz, net1_size)), repeat=2))
 
-imgs_dir = 'C:\\Users\\shimr\\Documents\\work\\testViz\\valData'
-log_dir = 'C:\\Users\\shimr\\Documents\\work\\testViz\\log'
+imgs_dir = 'C:\\Users\\shimr\\Documents\\work\\valData'
+log_dir = 'C:\\Users\\shimr\\Documents\\work\\log'
 
 # get all img files names
 jpgImgs = glob.glob(os.path.join(imgs_dir, "*jpg*"))
@@ -100,7 +100,7 @@ for i in range(num_of_imgs - doneImgs):
     def _bytes_feature(value):
         return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
-    valNet1_filename_pattern = 'C:/Users/shimr/Documents/work/testViz/tfrecords/val/val_'  # address to save the TFRecords file
+    valNet1_filename_pattern = 'C:/Users/shimr/Documents/work/tfrecords/val/val_'  # address to save the TFRecords file
 
     val_last_percent = 0
     for valPtl_currImg in range(len(val_points)):
