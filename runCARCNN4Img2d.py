@@ -117,7 +117,7 @@ def main(imgs_dir, log_dir, result_dir):
 
 if __name__=='__main__':
     #main(sys.argv[1], sys.argv[2])
-    imgs_dir = 'C:\\Users\\shimr\\Documents\\work\\testViz\\valData'
-    log_dir = 'C:\\Users\\shimr\\Documents\\work\\testViz\\log'
-    result_dir = 'C:/Users/shimr/Documents/work/testViz/results/'
+    imgs_dir = 'C:\\Users\\shimr\\Documents\\work\\valData'
+    log_dir = 'C:\\Users\\shimr\\Documents\\work\\log'
+    result_dir = 'C:/Users/shimr/Documents/work/results/'
     main(imgs_dir, log_dir, result_dir)
