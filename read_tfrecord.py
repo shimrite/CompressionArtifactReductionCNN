@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 net1_size = 32
 
-data_path = [("C:\\Users\\shimr\\Documents\\work\\testViz\\tfrecords\\train\\train_%d.tfrecords" % (i+1)) for i in range(2)]
+data_path = [("C:\\Users\\shimr\\Documents\\work\\tfrecords\\train\\train_%d.tfrecords" % (i+1)) for i in range(2)]
 with tf.Session() as sess:
     feature = {'train/image1': tf.FixedLenFeature([], tf.string),
                'train/image2': tf.FixedLenFeature([], tf.string)}
