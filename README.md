@@ -51,7 +51,7 @@ The resulted model reduce the artifacts and save the corrected images.
 	The model was tested on data set of 1000 images [512x512] (each image had two types - JPG and BMP).
 	After splitting into patches of 32x32 ("points to learn") there are 256,000 patches for train. 
 	After ~800 train steps (train batch size = 1000) we recieved:
-	train_loss = 1.792 and val_los = 2.880
+	# train_loss = 1.792 and val_loss = 2.880
 
 Following is an example of patch before (jpg) and after correction (pred) by the model: 
 	![Alt text](Figure_2.png?raw=true "Title")
