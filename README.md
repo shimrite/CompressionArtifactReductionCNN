@@ -16,9 +16,9 @@ The resulted model reduce the artifacts and save the corrected images.
   - layer 2 - conv&relu, 7x7 kernel, 32 features (map 32x32x64 features into 32x32x32 features)
   - layer 3 - conv&relu, 1x1 kernel, 16 features (map 32x32x32 features into 32x32x16 features)
   - layer 4 - conv&relu, 5x5 kernel, into 1 feature (results with the original shape image - 32x32) 
-* loss function (MSE) reduced steadily during the train
-* AdamOptimizer with learning_rate=0.001
-* relu activation function
+	* loss function (MSE) reduced steadily during the train
+	* AdamOptimizer with learning_rate=0.001
+	* relu activation function
 3. Run the net on test set - input folder including jpg images - per image, build the batch of patches (each patch 32x32 size), run the net and reconstruct to the image.  
 
 
@@ -41,9 +41,10 @@ The resulted model reduce the artifacts and save the corrected images.
 4. runCARCNN4Img2d.py $FileDir$ log data results
 
 ## Results:
-The model was tested on data set of 1000 images [512x512] (each image had two types - JPG and BMP).
-After splitting into patches of 32x32 ("points to learn") there are 256,000 patches for train. 
-After ~800 train steps (train batch size = 1000) we recieved:
-train_loss = 1.792 and val_los = 2.880
+	The model was tested on data set of 1000 images [512x512] (each image had two types - JPG and BMP).
+	After splitting into patches of 32x32 ("points to learn") there are 256,000 patches for train. 
+	After ~800 train steps (train batch size = 1000) we recieved:
+	train_loss = 1.792 and val_los = 2.880
+
 Following is an example of patch before (jpg) and after correction (pred) by the model: 
-![Alt text](Figure_1.png?raw=true "Title")
+	![Alt text](Figure_1.png?raw=true "Title")
