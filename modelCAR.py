@@ -1,6 +1,7 @@
 import tensorflow as tf
 from tensorflow import Tensor
 
+tf.compat.v1.disable_eager_execution()
 
 class Inputs(object):
     def __init__(self, img1: Tensor, img2: Tensor):
@@ -12,7 +13,7 @@ class Model(object):
         self.inputs = inputs
         self.predictions = self.predict(inputs)
         self.loss = self.calculate_loss(inputs, self.predictions)
-        self.opt_step = tf.train.AdamOptimizer(learning_rate=0.001).minimize(self.loss)
+        self.opt_step = tf.compat.v1.train.AdamOptimizer(learning_rate=0.001).minimize(self.loss)
         self.getInp = self.get_inputs(inputs)
 
     def predict(self, inputs: Inputs):
@@ -67,7 +68,7 @@ class Model(object):
 
     def _weight_variable(self, shape):
         """weight_variable generates a weight variable of a given shape."""
-        initial = tf.truncated_normal(shape, stddev=0.1)
+        initial = tf.compat.v1.truncated_normal(shape, stddev=0.1)
         return tf.Variable(initial)
 
     def _bias_variable(self, shape):

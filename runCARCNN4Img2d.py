@@ -6,9 +6,11 @@ import os
 import time
 import sys
 import math
-from scipy.misc import imread
-from scipy.misc import imsave
+from imageio import imread
+from imageio import imsave
 from itertools import product
+
+tf.compat.v1.disable_eager_execution()
 
 
 def main(imgs_dir, log_dir, result_dir):
@@ -22,10 +24,10 @@ def main(imgs_dir, log_dir, result_dir):
     patches_to_learn_ind = list(product(list(np.arange(0, img_sz, net1_size)), repeat=2))
 
     # restore CAR model
-    sess = tf.Session()
-    saver = tf.train.import_meta_graph(os.path.join(log_dir, "model_checkpoint.meta"))
+    sess = tf.compat.v1.Session()
+    saver = tf.compat.v1.train.import_meta_graph(os.path.join(log_dir, "model_checkpoint.meta"))
     saver.restore(sess, os.path.join(log_dir, 'model_checkpoint'))
-    graph = tf.get_default_graph()
+    graph = tf.compat.v1.get_default_graph()
     x = graph.get_tensor_by_name("IteratorGetNext:0")
     keep_prob = graph.get_tensor_by_name("keep_prob:0")
     prediction = graph.get_tensor_by_name("conv_relu_l_1/Squeeze:0")
@@ -35,11 +37,13 @@ def main(imgs_dir, log_dir, result_dir):
 
     # loop on imgs
     num_of_imgs = np.shape(jpgImgs)[0]
-    correctedImgs = np.zeros([num_of_imgs, img_sz, img_sz], dtype=float)
-    doneImgs = 0 #for debug
-    for i in range(num_of_imgs - doneImgs):
+    num_of_train_imgs = int(num_of_imgs * 0.7)
+    num_of_val_imgs = int(num_of_imgs * 0.3)
+    doneImgs = num_of_train_imgs
+    correctedImgs = np.zeros([num_of_val_imgs, img_sz, img_sz], dtype=float)
+    for i in range(num_of_val_imgs):
         imgName = jpgImgs[i + doneImgs][-24:-4]
-        jImg = imread(jpgImgs[i])
+        jImg = imread(jpgImgs[i + doneImgs])
 
         if np.isnan(np.sum(jImg)):
             sys.stdout.write("\r Slice %d - %s - jpg include NaN. \n" % (i + doneImgs, imgName))
@@ -106,7 +110,7 @@ def main(imgs_dir, log_dir, result_dir):
             plt.show()
 
         if save_results:
-            imsave(result_dir + imgName + '_car.bmp', correctedImgs[i])
+            imsave(result_dir + '/' + imgName + '_car.bmp', correctedImgs[i])
 
         sys.stdout.write("\r img %d - %s - jpg CAR done. \n" % (i + doneImgs, imgName))
 
@@ -116,8 +120,10 @@ def main(imgs_dir, log_dir, result_dir):
 
 
 if __name__=='__main__':
-    #main(sys.argv[1], sys.argv[2])
-    imgs_dir = 'C:\\Users\\shimr\\Documents\\work\\valData'
-    log_dir = 'C:\\Users\\shimr\\Documents\\work\\log'
-    result_dir = 'C:/Users/shimr/Documents/work/results/'
+
+    work_dir = sys.argv[1]                              #'/Users/../CompressionArtifactReduction'
+    log_dir = os.path.join(work_dir, sys.argv[2])       #'log'
+    imgs_dir = os.path.join(work_dir, sys.argv[3])      #'data')
+    result_dir = os.path.join(work_dir, sys.argv[4])    #'results/')
+
     main(imgs_dir, log_dir, result_dir)
