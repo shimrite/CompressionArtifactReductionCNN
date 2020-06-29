@@ -47,4 +47,6 @@ The resulted model reduce the artifacts and save the corrected images.
 	train_loss = 1.792 and val_los = 2.880
 
 Following is an example of patch before (jpg) and after correction (pred) by the model: 
+	![Alt text](Figure_2.png?raw=true "Title")
 	![Alt text](Figure_1.png?raw=true "Title")
+* Note the artifacts of the JPG compression are removed from the "predicted" patch.
