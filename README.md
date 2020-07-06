@@ -8,9 +8,9 @@ The resulted model reduce the artifacts and save the corrected images.
 ## The model include the following steps:
 
 1. Divided the data into train-validation-test sets
-	1.1. Loading the train and validation sets into tfrecords in patches of 32x32
-	(allowing kernels of 9x9 later in the net, adding local environment to the learn, 'Q' matrix of jpg compression is 8x8..)
-	1.2. Train and Validation sets loaded into two Datasets ('map' function reads from the tfrecords).
+		1.1. Loading the train and validation sets into tfrecords in patches of 32x32
+		(allowing kernels of 9x9 later in the net, adding local environment to the learn, 'Q' matrix of jpg compression is 8x8..)
+		1.2. Train and Validation sets loaded into two Datasets ('map' function reads from the tfrecords).
 2. Train CNN model:
   - layer 1 - conv&relu, 9x9 kernel, 64 features (map 32x32 image into 32x32x64 features)
   - layer 2 - conv&relu, 7x7 kernel, 32 features (map 32x32x64 features into 32x32x32 features)
