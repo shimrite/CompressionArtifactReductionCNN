@@ -62,6 +62,9 @@ Both Train Loss and Validation Loss reduced steadily (no overfitting):
 ![Alt text](Fig0_train_val_loss.png?raw=true "Title")	
 
 Following is an example of patch before (jpg) and after correction (pred) by the model: 
-![Alt text](Fig1_step1000_loss17.png?raw=true "Title")
-![Alt text](Fig2_step1480_loss14.png?raw=true "Title")
+JPG vs BMP vs JPG after correction - step1000, train_loss=16, val_loss=17
+	![Alt text](Fig1_step1000_loss17.png?raw=true "Title")
+JPG vs BMP vs JPG after correction - step1400, train_loss=14, val_loss=14
+	![Alt text](Fig2_step1480_loss14.png?raw=true "Title")
 * Note the artifacts of the JPG compression are removed from the "predicted" patch.
+
