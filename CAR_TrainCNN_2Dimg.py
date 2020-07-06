@@ -49,11 +49,11 @@ def main(train_tfrecords_path, val_tfrecords_path, log_dir ):
 
     # --- Build the Model Graph  ---
     # for the deep net details refer to Model Class (modelCAR file)
-    model_inputs = next_element
+    model_inputs = next_element                  # "IteratorGetNext:0"
     model = Model(model_inputs)
-    prediction = model.predict(model_inputs)
-    loss_step = model.calculate_loss(model_inputs, prediction)
-    train_step = tf.compat.v1.train.AdamOptimizer(learning_rate=0.0001).minimize(loss_step) #model.opt_step
+    prediction = model.predict(model_inputs)     # "conv_relu_l_1/Squeeze:0"
+    loss_step = model.calculate_loss(model_inputs, prediction)  # "loss_1/Mean:0"
+    train_step = tf.compat.v1.train.AdamOptimizer(learning_rate=0.0001).minimize(loss_step) #
 
     #initiliaze variable
     init_op = tf.group(tf.compat.v1.global_variables_initializer(), tf.compat.v1.local_variables_initializer())

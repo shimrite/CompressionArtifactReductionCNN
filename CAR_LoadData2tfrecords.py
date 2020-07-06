@@ -219,14 +219,14 @@ def main(imgs_dir, tfrecords_path):
     test_num_of_files = 0
     test_ptl_global = 0
     done_imgs = 0 # to be updated in case the train tfrecords creation done in two (or more) runs
-    test_net1_filename = test_tfr_filename_pattern + str(test_num_of_files + 1) + ".tfrecords"
-    train_writer_net1 = tf.io.TFRecordWriter(test_net1_filename)  # this writer wont be used
+    # test_net1_filename = test_tfr_filename_pattern + str(test_num_of_files + 1) + ".tfrecords"
+    # train_writer_net1 = tf.io.TFRecordWriter(test_net1_filename)  # this writer wont be used
     split_list_file.write("--- Test Images ---- \n")
     for i in range(num_of_test_imgs - done_imgs):
         img_name = x_test[i + done_imgs][-24:-4]
         split_list_file.write(img_name + "\n")
         jpg_img = imread(x_test[i])
-        bmp_img = imread(x_val[i][:-3] + "bmp")
+        bmp_img = imread(x_test[i][:-3] + "bmp")
         imsave(test_tfr_foldername + '/' + img_name + '.bmp', bmp_img)
         imsave(test_tfr_foldername + '/' + img_name + '.jpg', jpg_img)
 
