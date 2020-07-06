@@ -58,7 +58,8 @@ Model Layers:
 	--> After ~1000 train steps (train batch size = 1000) we recieved:
 	# train_loss = 16.892 and val_loss = 17.450
 Both Train Loss and Validation Loss reduced steadily (no overfitting):
-	![Alt text](Fig0_train_val_loss.png?raw=true "Title")	
+		
+![Alt text](Fig0_train_val_loss.png?raw=true "Title")	
 
 Following is an example of patch before (jpg) and after correction (pred) by the model: 
 	![Alt text](Fig1_step1000_loss17.png?raw=true "Title")
