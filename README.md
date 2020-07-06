@@ -23,7 +23,7 @@ Model Layers:
   - layer 3 - conv&relu, 1x1 kernel, 16 features (map 32x32x32 features into 32x32x16 features)
   - layer 4 - conv&relu, 5x5 kernel, into 1 feature (results with the original shape image - 32x32)
   
-	* loss function (MSE) reduced steadily during the train
+	* loss function (MSE) reduced steadily during the train (both for Train and Validation data)
 	* AdamOptimizer with learning_rate=0.001
 	* relu activation function
 	
@@ -55,10 +55,12 @@ Model Layers:
 ## Results:
 	The model was tested on data set of 1000 images [512x512] (each image had two types - JPG and BMP).
 	After splitting into patches of 32x32 ("points to learn") there are 256,000 patches for train. 
-	After ~800 train steps (train batch size = 1000) we recieved:
-	# train_loss = 1.792 and val_loss = 2.880
+	--> After ~1000 train steps (train batch size = 1000) we recieved:
+	# train_loss = 16.892 and val_loss = 17.450
+	--> Both Train Loss and Validation Loss reduced steadily (no overfitting):
+![Alt text](Fig0_train_val_loss.png?raw=true "Title")	
 
 Following is an example of patch before (jpg) and after correction (pred) by the model: 
-	![Alt text](Figure_2.png?raw=true "Title")
-	![Alt text](Figure_1.png?raw=true "Title")
+	![Alt text](Fig1_step1000_loss17.png?raw=true "Title")
+	![Alt text](Fig2_step1480_loss14.png?raw=true "Title")
 * Note the artifacts of the JPG compression are removed from the "predicted" patch.
