@@ -39,7 +39,7 @@ Model Layers:
 	6. read_tfrecord.py - optional, checking the resulted tfrecords
 	7. requirementsCAR.txt
 
-## In order to run the model, please setup the python environemnt using the erquirements file and run the following:
+## Running the model:
 	> CAR_LoadData2tfrecords.py $FileDir$ data tfrecords
 	> CAR_TrainCNN_2Dimg.py $FileDir$ log tfrecords/train tfrecords/val
 	> CAR_EvalCNN4_2DImg.py $FileDir$ log tfrecords/test results
@@ -51,20 +51,28 @@ Model Layers:
 		* log - the folder that will store the model checkpoint
 		* tfrecords/test - the folder name that holds the images to be tested (should be placed under the working dir)
 		* results - the folder that will store the corrected images (of the testdata above)
+		* pre-requisites: please setup the python environemnt using the requirements file
 
 ## Results:
 	The model was tested on data set of 1000 images [512x512] (each image had two types - JPG and BMP).
 	After splitting into patches of 32x32 ("points to learn") there are 256,000 patches for train. 
 	--> After ~1000 train steps (train batch size = 1000) we recieved:
-	# train_loss = 16.892 and val_loss = 17.450
+	# train_loss = 16.892 and val_loss = 17.450 (reduced from ~6000!)
+	--> After ~1000 train steps (train batch size = 1000) we recieved:
+	# train_loss = 10.292 and val_loss = 11.350
 Both Train Loss and Validation Loss reduced steadily (no overfitting):
 		
 ![Alt text](Fig0_train_val_loss.png?raw=true "Title")	
 
 Following is an example of patch before (jpg) and after correction (pred) by the model: 
+
 JPG vs BMP vs JPG after correction - step1000, train_loss=16, val_loss=17
 	![Alt text](Fig1_step1000_loss17.png?raw=true "Title")
 JPG vs BMP vs JPG after correction - step1400, train_loss=14, val_loss=14
 	![Alt text](Fig2_step1480_loss14.png?raw=true "Title")
 * Note the artifacts of the JPG compression are removed from the "predicted" patch.
+
+	--> The model was tested on the test data set --> average test_loss = 10!
+	
+* Please refere to the "NextSteps" file for my thoughts and plans for the model improvements.
 
