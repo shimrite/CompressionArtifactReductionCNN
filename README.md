@@ -24,27 +24,25 @@ The resulted model reduce the artifacts and save the corrected images.
 
 
 ## The package include the following python files:
-	1. loadTrainData.py 
-	2. loadValData.py
-	3. read_tfrecord.py (optional, checking the resulted tfrecords)
-	4. modelCAR.py (include the CNN model layers definition)
-	5. CAR_DS_Loader.py (build the train and validation data sets)
-	6. CAR_cnn_2d_DS.py (train the net)
-	7. runCARCNN4Img2d.py (evaluate the net on jpg images)
-	8. requirementsCAR.txt
+	1. CAR_LoadData2tfrecords.py - load images and save as patches in TFRecords files 
+	2. CAR_ModelCNN.py - the CNN model layers definition
+	3. CAR_DS_Loader.py - build the train and validation data sets
+	4. CAR_TrainCNN_2Dimg.py - train the net
+	5. CAR_EvalCNN4_2DImg.py - evaluate the net on jpg images
+	6. read_tfrecord.py - optional, checking the resulted tfrecords
+	7. requirementsCAR.txt
 
 ## In order to run the model, please setup the python environemnt using the erquirements file and run the following:
-	> loadTrainData.py $FileDir$ data tfrecords/train 
-	> loadValData.py $FileDir$ data tfrecords/val 
-	> CAR_cnn_2d_DS.py $FileDir$ log tfrecords/train tfrecords/val
-	> runCARCNN4Img2d.py $FileDir$ log testdata results
+	> CAR_LoadData2tfrecords.py $FileDir$ data tfrecords
+	> CAR_TrainCNN_2Dimg.py $FileDir$ log tfrecords/train tfrecords/val
+	> CAR_EvalCNN4_2DImg.py $FileDir$ log tfrecords/test results
 	
 		* $FileDir$ - the working directory
 		* data - the folder name that holds the train data set (should be placed under the working dir)
 		* tfrecords/train - the folder that will store the train tfrecords (should be placed under the working dir)
 		* tfrecords/val - the folder that will store the val tfrecords (should be placed under the working dir)
 		* log - the folder that will store the model checkpoint
-		* testdata - the folder name that holds the train data set (should be placed under the working dir)
+		* tfrecords/test - the folder name that holds the images to be tested (should be placed under the working dir)
 		* results - the folder that will store the corrected images (of the testdata above)
 
 ## Results:
