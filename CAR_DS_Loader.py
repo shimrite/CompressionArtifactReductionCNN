@@ -19,14 +19,17 @@ def _parse_function(path, net_size):
     image2_train = tf.cast(image2_train, dtype=tf.float32)
     image2_train = tf.reshape(image2_train, [net_size, net_size])
 
-    # standirze data (mean = 0, variance = 1
-    ## image1_train = tf.image.per_image_standardization(image1_train) -- ONLY FOR 3D img
+    # # standirze data (mean = 0, variance = 1 - TBD
     # image1_train_mean = tf.reduce_mean(image1_train)    #asarray(image1_train).astype('float32').mean()
     # image1_train_std = tf.math.reduce_std(image1_train)
-    # image1_train = (image1_train - image1_train_mean)/image1_train_std
+    # image1_train = tf.math.divide_no_nan(tf.subtract(image1_train, [image1_train_mean]), [image1_train_std])
+    # image1_train = tf.clip_by_value(image1_train, -1, 1)
+    # image1_train = (image1_train + 1)/2
     # image2_train_mean = tf.reduce_mean(image2_train)
     # image2_train_std = tf.math.reduce_std(image2_train)
-    # image2_train = (image2_train - image2_train_mean) / image2_train_std
+    # image2_train = tf.math.divide_no_nan(tf.subtract(image2_train, [image2_train_mean]), [image2_train_std])
+    # image2_train = tf.clip_by_value(image2_train, -1, 1)
+    # image2_train = (image2_train + 1) / 2
     return image1_train, image2_train
 
 

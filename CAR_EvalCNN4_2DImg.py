@@ -121,9 +121,26 @@ def main(imgs_dir, log_dir, result_dir):
                 bmp_curr_patch = bImg[min_x:max_x, min_y:max_y]
                 curr_patch[curr_patch < 0] = 0
                 curr_patch[curr_patch > 255] = 255
+                # patch standartisation
+                # curr_patch_mean = curr_patch.mean()
+                # curr_patch_std = curr_patch.std()
+                # curr_patch = (curr_patch - curr_patch_mean)
+                # curr_patch = np.divide(curr_patch, curr_patch_std, where=curr_patch_std!=0)
+                # curr_patch = np.clip(curr_patch, -1, 1)
+                # curr_patch = (curr_patch + 1) / 2
+                # bmp patch standart
+                bmp_curr_patch[bmp_curr_patch < 0] = 0
+                bmp_curr_patch[bmp_curr_patch > 255] = 255
+                # patch standartisation
+                # bmp_curr_patch_mean = bmp_curr_patch.mean()
+                # bmp_curr_patch_std = bmp_curr_patch.std()
+                # bmp_curr_patch = (bmp_curr_patch - bmp_curr_patch_mean)
+                # bmp_curr_patch = np.divide(bmp_curr_patch, bmp_curr_patch_std, where=bmp_curr_patch_std != 0)
+                # bmp_curr_patch = np.clip(bmp_curr_patch, -1, 1)
+                # bmp_curr_patch = (bmp_curr_patch + 1) / 2
                 # check valid patch
                 if np.isnan(np.sum(curr_patch)):
-                    sys.stdout.write("\r Slice %d - %s - jpg include NaN. \n" % (i + doneImgs, img_name))
+                    sys.stdout.write("\r Slice %d - %s - jpg include NaN. \n" % (i + done_imgs, img_name))
                     continue
                 if not np.shape(curr_patch) == (net1_size, net1_size):
                     continue
