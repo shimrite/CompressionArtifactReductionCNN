@@ -74,7 +74,8 @@ JPG vs BMP vs JPG after correction -  patch size 32x32 - step1400, train_loss=14
 
 	--> The model was tested on the test data set --> average test_loss = 10!
 JPG vs BMP vs JPG after correction - full image 512x512
-	![Alt text](Figure_10_imgCorrected.png?raw=true "Title")	
+	
+![Alt text](Figure_10_imgCorrected.png?raw=true "Title")	
 	
 * Please refere to the "FutureDirections" file for my thoughts and plans for the model improvements.
 
