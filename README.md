@@ -77,5 +77,5 @@ JPG vs BMP vs JPG after correction - full image 512x512
 	
 ![Alt text](Figure_10_imgCorrected.png?raw=true "Title")	
 	
-* Please refere to the "FutureDirections" file for my thoughts and plans for the model improvements.
+## * Please refere to the "FutureDirections" file for my next steps for the model improvements.
 
