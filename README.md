@@ -10,10 +10,10 @@ The resulted model reduce the artifacts and save the corrected images.
 1. Divided the data into train-validation-test sets
 
 - 1.1 - Split data to train-validation-test sets (70-20-10)
-- 1.2 - Loading the train and validation sets into tfrecords in patches of 32x32
+- 1.2 - Loading the train and validation sets into tfrecords in patches of 32x32.
 
-The motivation for this patch size starts by the 'Q' matrix of JPG compression algorithm. 
-Since its size of 8x8 I chose to include in the model the "neighbour matrixes", adding local environment to the learn.
+	The motivation for this patch size starts by the 'Q' matrix of JPG compression algorithm. 
+	Since its size of 8x8 I chose to include in the model the "neighbour matrixes", adding local environment to the learn.
 
 - 1.3 - Tset set is copied to "test" folder.
 
