@@ -22,12 +22,12 @@ In addition, the loss of the model didnt reached the expected minimum and can be
 4. Model architecture changes
 5. Retrain on different hyperparameters sets:
 
-  1. patch_size
-  2. batch_size
-  3. train-test-validation split
-  4. learning_rate
-  5. keep-probs
-  6. regularization factor
+      1. patch_size
+      2. batch_size
+      3. train-test-validation split
+      4. learning_rate
+      5. keep-probs
+      6. regularization factor
 
 6. train on larger amount of data
   
