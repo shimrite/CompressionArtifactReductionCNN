@@ -2,7 +2,8 @@
 
 ## Why
 As can be seen in the figures below the "patch-wise" learning introduces artifatcs on the patch border:
-
+![Alt text](Fig03_step1000_loss0019.png?raw=true "Title")	
+![Alt text](Fig05_step1000_loss0019.png?raw=true "Title")	
 When looking at the infered image it is even clearer:
 
 These artifacts happens as a result of the 2d Convolution using padding="SAME". (padding of zeros results with higher gray level).
