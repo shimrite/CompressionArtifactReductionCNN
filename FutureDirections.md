@@ -1,10 +1,13 @@
 # Future Directions
 
 ## Why
-As can be seen in the figures below the "patch-wise" learning introduces artifatcs on the patch border:
+As can be seen in the figures below the "patch-wise" learning introduces artifatcs on the patch borders:
 ![Alt text](Fig03_step1000_loss0019.png?raw=true "Title")	
 ![Alt text](Fig05_step1000_loss0019.png?raw=true "Title")	
 When looking at the infered image it is even clearer:
+![Alt text](Figure_10_imgCorrected.png?raw=true "Title")	
+and if we will zoom-in:
+![Alt text](Figure_10_imageCorrected_zoomin.png?raw=true "Title")	
 
 These artifacts happens as a result of the 2d Convolution using padding="SAME". (padding of zeros results with higher gray level).
 In addition, the loss of the model didnt reached the expected minimum and can be improved.
@@ -18,7 +21,7 @@ In addition, the loss of the model didnt reached the expected minimum and can be
   3. Post processing smoothing
 
 #### Model fine-tuning:
-1. Batch Normalization (currently there is data standartization per patch).
+1. Batch Normalization (data standartization was tested per patch, didnt recieved better loss and harmed the inference image resulted).
 2. Weight Regularization
 3. Dropout
 4. Model architecture changes
@@ -31,5 +34,5 @@ In addition, the loss of the model didnt reached the expected minimum and can be
       5. keep-probs
       6. regularization factor
 
-6. train on larger amount of data
+6. Train on larger amount of data
   
