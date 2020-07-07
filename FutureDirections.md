@@ -12,7 +12,8 @@ In addition, the loss of the model didnt reached the expected minimum and can be
 
 #### Handling the borders effects:
   1. Overlapped inference with padding="SAME" - borders pixels will be ignored on the inffered image.
-  2. Overlapped inference with padding="VALID" - the resulted patch will be smaller than the input patch,hence th eplanning of the patches to be inffered should be adjusted.
+  2. Overlapped inference with padding="VALID" - the resulted patch will be smaller than the input patch on a "valid" padding.
+     * on both options above the planning of the patches to be inffered should be adjusted.
   3. Post processing smoothing
 
 #### Model fine-tuning:
