@@ -11,7 +11,10 @@ The resulted model reduce the artifacts and save the corrected images.
 
 - 1.1 - Split data to train-validation-test sets (70-20-10)
 - 1.2 - Loading the train and validation sets into tfrecords in patches of 32x32
-(allowing kernels of 9x9 later in the net, adding local environment to the learn, 'Q' matrix of jpg compression is 8x8..)
+
+The motivation for this patch size starts by the 'Q' matrix of JPG compression algorithm. 
+Since its size of 8x8 I chose to include in the model the "neighbour matrixes", adding local environment to the learn.
+
 - 1.3 - Tset set is copied to "test" folder.
 
 2. Train CNN model:
