@@ -57,13 +57,15 @@ Model Layers:
 		* pre-requisites: please setup the python environemnt using the requirements file
 
 ## Results:
-	The model was tested on data set of 1000 images [512x512] (each image had two types - JPG and BMP).
-	After splitting into patches of 32x32 ("points to learn") there are 256,000 patches for train. 
-	--> After ~1000 train steps (train batch size = 1000) we recieved:
-	# train_loss = 16.892 and val_loss = 17.450 (reduced from ~6000!)
-	--> After ~2000 train steps (train batch size = 1000) we recieved:
-	# train_loss = 10.292 and val_loss = 11.350!
-Both Train Loss and Validation Loss reduced steadily (no overfitting):
+The model was tested on data set of 1000 images [512x512] (each image had two types - JPG and BMP).
+After splitting into patches of 32x32 ("points to learn") there are 256,000 patches for train. 
+
+#### --> After ~1000 train steps (train batch size = 1000) we recieved:
+	train_loss = 16.892 and val_loss = 17.450 (reduced from ~6000!)
+#### --> After ~2000 train steps (train batch size = 1000) we recieved:
+	train_loss = 10.292 and val_loss = 11.350!
+
+#### --> Both Train Loss and Validation Loss reduced steadily (no overfitting):
 		
 ![Alt text](Fig0_train_val_loss.png?raw=true "Title")	
 
@@ -75,7 +77,7 @@ JPG vs BMP vs JPG after correction -  patch size 32x32 - step1400, train_loss=14
 	![Alt text](Fig2_step1480_loss14.png?raw=true "Title")
 * Note the artifacts of the JPG compression are removed from the "predicted" patch.
 
-	--> The model was tested on the test data set --> average test_loss = 10!
+#### --> The model was tested on the test data set --> average test_loss = 10!
 	
 JPG vs BMP vs JPG after correction - full image 512x512
 	
