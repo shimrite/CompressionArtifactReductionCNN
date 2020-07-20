@@ -67,21 +67,21 @@ After splitting into patches of 32x32 ("points to learn") there are 256,000 patc
 
 #### --> Both Train Loss and Validation Loss reduced steadily (no overfitting):
 		
-![Alt text](Fig0_train_val_loss.png?raw=true "Title")	
+![Alt text](Figures/Fig0_train_val_loss.png?raw=true "Title")	
 
 Following is an example of patch before (jpg) and after correction (pred) by the model: 
 
 JPG vs BMP vs JPG after correction - patch size 32x32 - step1000, train_loss=16, val_loss=17
-	![Alt text](Fig1_step1000_loss17.png?raw=true "Title")
+	![Alt text](Figures/Fig1_step1000_loss17.png?raw=true "Title")
 JPG vs BMP vs JPG after correction -  patch size 32x32 - step1400, train_loss=14, val_loss=14
-	![Alt text](Fig2_step1480_loss14.png?raw=true "Title")
+	![Alt text](Figures/Fig2_step1480_loss14.png?raw=true "Title")
 * Note the artifacts of the JPG compression are removed from the "predicted" patch.
 
 #### --> The model was tested on the test data set --> average test_loss = 10!
 	
 JPG vs BMP vs JPG after correction - full image 512x512
 	
-![Alt text](Figure_10_imgCorrected.png?raw=true "Title")	
+![Alt text](Figures/Figure_10_imgCorrected.png?raw=true "Title")	
 	
 ### * Please refere to the [FutureDirections](FutureDirections.md) file for my next steps for the model improvements.
 
