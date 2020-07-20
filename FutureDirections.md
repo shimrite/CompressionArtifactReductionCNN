@@ -2,12 +2,12 @@
 
 ## Why
 As can be seen in the figures below the "patch-wise" learning introduces artifatcs on the patch borders:
-![Alt text](Fig03_step1000_loss0019.png?raw=true "Title")	
-![Alt text](Fig05_step1000_loss0019.png?raw=true "Title")	
+![Alt text](Figures/Fig03_step1000_loss0019.png?raw=true "Title")	
+![Alt text](Figures/Fig05_step1000_loss0019.png?raw=true "Title")	
 When looking at the infered image it is even clearer:
-![Alt text](Figure_10_imgCorrected.png?raw=true "Title")	
+![Alt text](Figures/Figure_10_imgCorrected.png?raw=true "Title")	
 and if we will zoom-in:
-![Alt text](Figure_10_imageCorrected_zoomin.png?raw=true "Title")	
+![Alt text](Figures/Figure_10_imageCorrected_zoomin.png?raw=true "Title")	
 
 These artifacts happens as a result of the 2d Convolution using padding="SAME". (padding of zeros results with higher gray level).
 In addition, the loss of the model didnt reached the expected minimum and can be improved.
